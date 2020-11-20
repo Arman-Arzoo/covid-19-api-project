@@ -37,7 +37,8 @@ body{
 .info-container div{
     flex-grow: 4;
     text-align: center;
-    background-color: beige;
+    background-color:white;
     margin: 3rem;
     height: 200px;
+    box-shadow: 0 0 10px gray;
 }
