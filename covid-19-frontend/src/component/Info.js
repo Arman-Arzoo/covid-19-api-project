@@ -1,5 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import Countup from 'react-countup';
+import {Bar} from 'react-chartjs-2';
+
 
 export const Info = () => {
   const [globalData, setGlobaldata] = useState({});
@@ -23,7 +26,7 @@ export const Info = () => {
        
         setGlobaldata(covidData);
         setupdate(updateDate);
-        
+
       } catch (err) {
         console.log("error fetching data");
       }
@@ -31,14 +34,44 @@ export const Info = () => {
     getCovidData();
   }, []);
 
- 
+  
+    const graphdata ={
+      labels:[
+        "Confirmed",
+        "Recovered",
+        "Death"
+      ],
+      datasets:[
+        {
+          label: "Covid 19",
+          backgroundcolor:"blue",
+          bordercolor:"yellow",
+          hoverBackgroundColor:"lightblue",
+          hoverBorderColor:"lightyellow",
+          data:[56991301,36593016,1362191]
+        }
+      ]
+    }
+
+
+
+
+  
   return (
+    <div>
     <div className="info-container">
       {Object.keys(globalData).map((val,ind)=>{
           return(
           <div key={ind}>
             <h2> {val}</h2>
-            <h3>{globalData[val].value}</h3>
+            <h3>
+              <Countup
+              start = {0}
+              end = {globalData[val].value}
+              duration = {2.5}
+              separator = ','/>
+              
+            </h3>
             
           </div>
           )
@@ -50,6 +83,16 @@ export const Info = () => {
       </div>
 
       
+
+    </div>
+      <Bar
+      datas={graphdata}
+      width={100}
+      height={250}
+      options={{
+        maintainAspectRatio:false
+      }}
+      />
 
     </div>
   );
