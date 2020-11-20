@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+}
+/* @header start */
+.header{
+    grid-area: header;
+    background-color: #1d4354;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding-left: 5rem;
+  }
+
+.header-logo a{
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 1.5rem;
+}
+
+.header-menu{
+    padding-right: 5rem;
+}
+.header-menu input{
+    padding: 0.4rem;
+    margin: 0.3rem;
+}
+
+/* header end */
+
+/* @Info start */
+.info-container{
+    display: flex;
+    justify-content: center;
+}
+.info-container div{
+    flex-grow: 4;
+    text-align: center;
+    background-color: beige;
+    margin: 3rem;
+    height: 200px;
+}
